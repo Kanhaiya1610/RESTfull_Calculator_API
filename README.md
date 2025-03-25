@@ -79,7 +79,7 @@ docker run -p 8080:8080 calculator-api
 
 ## 💻 Example Usage
 
-### Using cURL
+### Using CURL
 
 ```bash
 # Addition
