@@ -1,66 +1,64 @@
 # Calculator Project
 
-A simple calculator application built with Spring Boot that provides basic arithmetic operations through a REST API.
+A robust calculator API built with Spring Boot that provides basic arithmetic operations. This project demonstrates RESTful API development using Spring Boot and follows best practices for application development.
 
-## Features
+## 🚀 Features
 
-- Basic arithmetic operations (Addition, Subtraction, Multiplication, Division)
-- RESTful API endpoints
-- Input validation
-- Error handling
+- Basic arithmetic operations:
+  - Addition
+  - Subtraction
+  - Multiplication
+  - Division
+- RESTful API endpoints with proper HTTP methods
+- Input validation and error handling
 
-## Prerequisites
+## 🛠️ Tech Stack
 
-- Java 17 or higher
+- **Framework:** Spring Boot 2.7.0
+- **Language:** Java 11
+- **Build Tool:** Maven 3.6+
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+- JDK 11 or higher
 - Maven 3.6 or higher
-- Spring Boot 3.x
+- Git
 
-## Project Structure
+## 🔧 Installation & Setup
 
-```
-src/
-├── main/
-│   ├── java/
-│   │   └── com/
-│   │       └── calculator/
-│   │           ├── controller/    # REST API controllers
-│   │           ├── util/          # Utility classes
-│   │           └── CalculatorApplication.java
-│   └── resources/
-```
-
-## Getting Started
-
-1. Clone the repository:
+1. **Clone the repository:**
 ```bash
 git clone <repository-url>
-```
-
-2. Navigate to the project directory:
-```bash
 cd calculator-project
 ```
 
-3. Build the project:
+2. **Build the project:**
 ```bash
 mvn clean install
 ```
 
-4. Run the application:
+3. **Run the application:**
 ```bash
 mvn spring-boot:run
 ```
 
-The application will start on `http://localhost:8080`
+4. **Using Docker:**
+```bash
+docker build -t calculator-api .
+docker run -p 8080:8080 calculator-api
+```
 
-## API Endpoints
+## 🌐 API Documentation
 
-### Calculator Operations
+### Available Endpoints
 
-- **Addition**: `POST /api/calculator/add`
-- **Subtraction**: `POST /api/calculator/subtract`
-- **Multiplication**: `POST /api/calculator/multiply`
-- **Division**: `POST /api/calculator/divide`
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/calculate/add` | Add two numbers |
+| POST | `/api/calculate/subtract` | Subtract two numbers |
+| POST | `/api/calculate/multiply` | Multiply two numbers |
+| POST | `/api/calculate/divide` | Divide two numbers |
 
 ### Request Format
 ```json
@@ -79,14 +77,77 @@ The application will start on `http://localhost:8080`
 }
 ```
 
-## Error Handling
+## 💻 Example Usage
 
-The application includes proper error handling for:
-- Division by zero
-- Invalid input parameters
-- Missing required fields
+### Using cURL
 
-## Contributing
+```bash
+# Addition
+curl -X POST http://localhost:8080/api/calculate/add \
+-H "Content-Type: application/json" \
+-d '{"num1": 10, "num2": 5}'
+
+# Subtraction
+curl -X POST http://localhost:8080/api/calculate/subtract \
+-H "Content-Type: application/json" \
+-d '{"num1": 10, "num2": 5}'
+
+# Multiplication
+curl -X POST http://localhost:8080/api/calculate/multiply \
+-H "Content-Type: application/json" \
+-d '{"num1": 10, "num2": 5}'
+
+# Division
+curl -X POST http://localhost:8080/api/calculate/divide \
+-H "Content-Type: application/json" \
+-d '{"num1": 10, "num2": 5}'
+```
+
+### Using Postman
+1. Import the provided Postman collection
+2. Set the base URL to `http://localhost:8080`
+3. Use the pre-configured requests for each operation
+
+## 🧪 Testing
+
+### Running Tests
+```bash
+# Run all tests
+mvn test
+
+# Run specific test class
+mvn test -Dtest=CalculatorControllerTest
+
+# Run with coverage
+mvn test jacoco:report
+```
+
+## 📁 Project Structure
+
+```
+calculator-project/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/calculator/
+│       │       ├── controller/
+│       │       ├── service/
+│       │       ├── model/
+│       │       └── CalculatorApplication.java
+│       └── resources/
+│           └── application.properties
+├── pom.xml
+└── README.md
+```
+
+## 🔒 Security
+
+- Input validation to prevent invalid operations
+- Error handling for division by zero
+- Rate limiting (configurable)
+- Request/Response logging
+
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -94,6 +155,15 @@ The application includes proper error handling for:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- Kanhaiya Lal - Initial Spring-Boot Project
+
+## 🙏 Acknowledgments
+
+- Spring Boot team for the amazing framework
+- All contributors who have helped shape this project 
